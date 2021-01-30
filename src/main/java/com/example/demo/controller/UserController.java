@@ -16,6 +16,7 @@ public class UserController {
 
     @RequestMapping(value = "/index",method = RequestMethod.POST)
     public String index(User user){
+        System.out.println(user);
         userService.save(user);
         return "success";
     }
