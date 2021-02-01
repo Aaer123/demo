@@ -9,6 +9,10 @@ spring:
     username: root
     password: 12342234
     driver-class-name: com.mysql.jdbc.Driver
+  servlet:
+    multipart:
+      max-file-size: 2000MB #单个文件上传限制
+      max-request-size: 2000MB #多个文件上传限制
 mybatis:
   type-aliases-package: com.example.demo.domain
   configuration:
@@ -23,3 +27,7 @@ mybatis:
         example:
           demo:
             mapper: debug
+
+#自定义文件上传路径
+web:
+  upload-path: /Downloads/imgUpload/
