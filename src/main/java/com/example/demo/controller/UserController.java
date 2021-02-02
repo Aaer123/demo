@@ -19,31 +19,41 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/index",method = RequestMethod.POST)
-    public String index(User user){
+    @RequestMapping(value = "/index", method = RequestMethod.POST)
+    public String index(User user) {
         userService.save(user);
         System.out.println(user);
         return "login";
     }
 
     //跳转登录页面方法
-    @RequestMapping("logins")
-    public String logins(){
-        return "login";
+    @RequestMapping("/logins")
+    public String logins() {
+        return "hello";
     }
 
+    //    返回json对象
+   /* @RequestMapping("login")
+    public User login(){
+        User user=new User(1,"kkk","12323");
+         user.setId(3);
+         user.setUsername("kkkkdkkdkwd");
+         user.setPassword("21312321");
+         return user;
+    }*/
     @RequestMapping(value = "login")
-    public String login(String username,String password){
+    public String login(String username, String password) {
         User user = userService.selectUser(username, password);
-        if (user!=null){
+        if (user != null) {
             return "List";
-        }else{
+        } else {
             System.out.println("登录失败,请先注册账号");
             return "index";
         }
     }
+
     @RequestMapping(value = "update")
-    public String Uqdate(String username){
+    public String Uqdate(String username) {
         userService.updateuser(username);
         return "update";
     }
