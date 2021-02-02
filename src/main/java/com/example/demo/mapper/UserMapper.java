@@ -17,7 +17,7 @@ public interface UserMapper {
        //修改密码
        void updateuser(String username);
 
-       //查询用户
+       //查询用户名
        User getUser(String username);
 
 }
