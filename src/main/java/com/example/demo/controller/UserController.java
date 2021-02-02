@@ -29,7 +29,7 @@ public class UserController {
     //跳转登录页面方法
     @RequestMapping("/logins")
     public String logins() {
-        return "hello";
+        return "login";
     }
 
     //    返回json对象
