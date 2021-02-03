@@ -20,4 +20,12 @@
     <select id="getUser" parameterType="String" resultType="user">
         select * from user where username=#{username}
     </select>
+    <!--查询所有用户-->
+    <select id="getselects" resultType="user">
+        select * from user
+    </select>
+    <!--根据用户名查询用户信息-->
+    <select id="selecte" parameterType="String" resultType="user">
+        select * from user where username=#{username}
+    </select>
 </mapper>

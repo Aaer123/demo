@@ -5,6 +5,8 @@ import com.example.demo.domain.User;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
+import java.util.List;
+
 @Mapper
 public interface UserMapper {
 
@@ -19,5 +21,11 @@ public interface UserMapper {
 
        //查询用户名
        User getUser(String username);
+
+       //查询所有用户
+       List<User> getselects();
+
+       //根据用户名查询
+       List<User> selecte(String username);
 
 }

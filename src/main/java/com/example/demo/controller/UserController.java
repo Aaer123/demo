@@ -8,8 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 ///**
 // * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端·
@@ -34,6 +37,7 @@ public class UserController {
 
     /**
     * 注册
+    * 重定向：redirect:/index --- HttpServletRequest request
     */
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String index(User user) {
@@ -85,5 +89,34 @@ public class UserController {
          boolean a=userService.updateuser(user);
          System.out.println(a);
          return userService.updateuser(user)?"update":"setses";
+    }
+    @RequestMapping("findAll")
+    public String findAll(){
+        return "get";
+    }
+
+    @RequestMapping("get")
+    public ModelAndView get(){
+        List<User> userList = userService.getselects();
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("userList",userList);
+        modelAndView.setViewName("userList");
+        System.out.println(userList);
+        return modelAndView;
+    }
+
+    @RequestMapping("findAlls")
+    public String findAlls(){
+        return "gets";
+    }
+
+    @RequestMapping("gets")
+    public ModelAndView gets(String username){
+        List<User> userList = userService.selecte(username);
+        ModelAndView modelAndView=new ModelAndView();
+        modelAndView.addObject("userList",userList);
+        modelAndView.setViewName("userList");
+        System.out.println(userList);
+        return modelAndView;
     }
 }

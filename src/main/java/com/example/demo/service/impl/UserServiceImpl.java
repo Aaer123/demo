@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Resource;
+import java.util.List;
 
 @Service
 @Transactional
@@ -53,5 +54,17 @@ public class UserServiceImpl implements UserService {
     public User getUser(String username) {
         User user = userMapper.getUser(username);
         return user;
+    }
+
+    @Override
+    public List<User> getselects() {
+        List<User> userList = userMapper.getselects();
+        return userList;
+    }
+
+    @Override
+    public List<User> selecte(String username) {
+        List<User> userList = userMapper.selecte(username);
+        return userList;
     }
 }
