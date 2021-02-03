@@ -28,7 +28,20 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public void updateuser(String username) {
-        userMapper.updateuser(username);
+    public boolean updateuser(User user) {
+            //查询到该用户名，进行修改密码
+            if (userMapper.getUser(user.getUsername()) != null) {
+                userMapper.updateuser(user);
+                System.out.println(user);
+                //修改成功
+                return true;
+            } else {
+                return false;
+            }
+        }
+    @Override
+    public User getUser(String username) {
+        User user = userMapper.getUser(username);
+        return user;
     }
 }

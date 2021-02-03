@@ -12,4 +12,12 @@
     <select id="selectUser" parameterType="user" resultType="user">
         select * from user where username=#{username} and password=#{password}
     </select>
+    <!--修改密码-->
+    <update id="updateuser" parameterType="String">
+        update user set password=#{password} where username=#{username}
+    </update>
+    <!--查询用户是否为空-->
+    <select id="getUser" parameterType="String" resultType="user">
+        select * from user where username=#{username}
+    </select>
 </mapper>

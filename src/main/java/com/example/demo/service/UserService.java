@@ -12,5 +12,9 @@ public interface UserService {
     User selectUser(@Param("username") String username, @Param("password") String password);
 
     //修改密码
-    void updateuser(String username);
+    boolean updateuser(User user);
+
+    //查询用户名
+    User getUser(String username);
+
 }

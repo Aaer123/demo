@@ -51,10 +51,15 @@ public class UserController {
             return "index";
         }
     }
+      @RequestMapping("sets")
+      public String sets() {
+        return "set";
+    }
 
-    @RequestMapping(value = "update")
-    public String Uqdate(String username) {
-        userService.updateuser(username);
-        return "update";
+        @RequestMapping("set")
+        public String setPasswords(User user){
+         boolean a=userService.updateuser(user);
+         System.out.println(a);
+         return userService.updateuser(user)?"update":"setses";
     }
 }
