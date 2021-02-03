@@ -25,6 +25,9 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    /**
+    * 注入用户数据层
+    * */
     @Resource
     private UserMapper userMapper;
 
@@ -39,7 +42,7 @@ public class UserController {
         return "login";
     }
 
-    //跳转登录页面方法
+    //跳转登录页面
     @RequestMapping("/logins")
     public String logins() {
         return "login";
@@ -70,12 +73,13 @@ public class UserController {
             return "indexs";
         }
     }
-        //跳转页面方法
+        //跳转修改页面
         @RequestMapping("sets")
         public String sets() {
           return "set";
     }
 
+        //修改密码
         @RequestMapping("set")
         public String setPasswords(User user){
          boolean a=userService.updateuser(user);
