@@ -6,7 +6,7 @@ import org.apache.ibatis.annotations.Param;
 public interface UserService {
 
     //注册
-    void save(User user);
+    boolean save(User user);
 
     //登录
     User selectUser(@Param("username") String username, @Param("password") String password);

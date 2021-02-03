@@ -16,9 +16,19 @@ public class UserServiceImpl implements UserService {
     @Resource
     private UserMapper userMapper;
 
+
     @Override
-    public void save(User user) {
-        userMapper.save(user);
+    public boolean save(User user) {
+        //注册的用户名不存在，允许注册
+        if (userMapper.getUser(user.getUsername())==null){
+            //注册
+            userMapper.save(user);
+            System.out.println(user);
+            //注册成功
+            return true;
+        }else{
+            return false;
+        }
     }
 
     @Override

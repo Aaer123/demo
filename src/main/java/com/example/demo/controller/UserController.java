@@ -1,12 +1,15 @@
 package com.example.demo.controller;
 
 import com.example.demo.domain.User;
+import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.annotation.Resource;
 
 ///**
 // * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端·
@@ -16,13 +19,23 @@ import org.springframework.web.bind.annotation.RestController;
 @RequestMapping("/user")
 public class UserController {
 
+    /**
+     * 注入用户业务层
+     * */
     @Autowired
     private UserService userService;
 
+    @Resource
+    private UserMapper userMapper;
+
+
+    /**
+    * 注册
+    */
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String index(User user) {
-        userService.save(user);
-        System.out.println(user);
+        boolean save = userService.save(user);
+        System.out.println(save);
         return "login";
     }
 
@@ -41,19 +54,26 @@ public class UserController {
          user.setPassword("21312321");
          return user;
     }*/
+    /**
+    * 登录逻辑
+    */
     @RequestMapping(value = "login")
     public String login(String username, String password) {
         User user = userService.selectUser(username, password);
         if (user != null) {
             return "List";
-        } else {
+            //查询用户名是否为空，如果为空返回注册页面
+        } else if (userMapper.getUser(username)==null){
             System.out.println("登录失败,请先注册账号");
             return "index";
+        }else{
+            return "indexs";
         }
     }
-      @RequestMapping("sets")
-      public String sets() {
-        return "set";
+        //跳转页面方法
+        @RequestMapping("sets")
+        public String sets() {
+          return "set";
     }
 
         @RequestMapping("set")
