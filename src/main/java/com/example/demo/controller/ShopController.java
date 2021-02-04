@@ -16,11 +16,14 @@ public class ShopController {
     private ShopService shopService;
 
 
+    @RequestMapping("Add")
+    public String Add(){
+        return "shopAdd";
+    }
+
     //添加
-    @RequestMapping(value = "shopAdd")
+    @RequestMapping("shopAdd")
     public String shopAdd(Shop shop) {
-        shopService.ShopAdd(shop);
-        System.out.println(shop);
-        return "toShopAdd";
+       return shopService.ShopAdd(shop)?"Adds":"Addss";
     }
 }

@@ -23,8 +23,8 @@ public class CustomerServiceimpl implements CustomerService {
     }
 
     @Override
-    public List<Customer> selects(int id) {
-        List<Customer> customerList = customerMapper.selects(id);
+    public List<Customer> selects(int userid) {
+        List<Customer> customerList = customerMapper.selects(userid);
         return customerList;
     }
 }

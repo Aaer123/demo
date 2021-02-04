@@ -17,7 +17,8 @@ public class ShopServiceImpl implements ShopService {
     private ShopMapper shopMapper;
 
     @Override
-    public void ShopAdd(Shop shop) {
-        shopMapper.ShopAdd(shop);
+    public boolean ShopAdd(Shop shop) {
+        boolean b = shopMapper.ShopAdd(shop);
+        return b;
     }
 }

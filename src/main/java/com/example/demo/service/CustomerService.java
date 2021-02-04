@@ -10,5 +10,5 @@ public interface CustomerService {
 
     void insert(Customer customer);
 
-    List<Customer> selects(int id);//封装到集合，查询出来的结果放到集合当中
+    List<Customer> selects(int userid);//封装到集合，查询出来的结果放到集合当中
 }

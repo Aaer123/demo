@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
         PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
         "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.itheima.mapper.StorageMapper">
+<mapper namespace="com.example.demo.mapper.StorageMapper">
     <!--增加到库存表-->
     <insert id="addStorageshop" parameterType="storage">
         insert into stock values (#{bookid},#{bookname}

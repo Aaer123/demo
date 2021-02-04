@@ -12,18 +12,23 @@ import org.springframework.web.servlet.ModelAndView;
 import java.util.List;
 
 @Controller
-@RequestMapping("customer")
+@RequestMapping("/customer")
 public class CustomerController {
 
 
     @Autowired
     private CustomerService customerService;
 
+    @RequestMapping("inserts")
+    public String inserts(){
+        return "insert";
+    }
+
     @RequestMapping("insert")
     public String insert(Customer customer){
         customerService.insert(customer);
         System.out.println(customer);
-        return "toinsert";
+        return "insertt";
     }
 
 /*    @RequestMapping("selects")
@@ -42,10 +47,15 @@ public class CustomerController {
 
  */
 
-    @ResponseBody//直接返回json
+    @RequestMapping("select")
+    public String select(){
+       return "selects";
+    }
+
+//    @ResponseBody//直接返回json
     @RequestMapping("selects")
-    public ModelAndView selects(int id) {
-        List<Customer> customerList = customerService.selects(id);
+    public ModelAndView selects(int userid) {
+        List<Customer> customerList = customerService.selects(userid);
         System.out.println(customerList);
         ModelAndView modelAndView=new ModelAndView();
         modelAndView.addObject("customerList",customerList);

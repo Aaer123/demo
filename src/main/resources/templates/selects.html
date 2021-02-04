@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>查询页面</title>
+</head>
+<body>
+<form th:action="@{selects}" method="post">
+    客户编号：<input type="text" name="userid"><br>
+    <input type="submit" value="查询">
+</form>
+</body>
+</html>
