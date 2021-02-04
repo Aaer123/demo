@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.annotation.Resource;
-import javax.servlet.http.HttpServletRequest;
 import java.util.List;
 
 ///**
@@ -86,8 +84,6 @@ public class UserController {
         //修改密码
         @RequestMapping("set")
         public String setPasswords(User user){
-         boolean a=userService.updateuser(user);
-         System.out.println(a);
          return userService.updateuser(user)?"update":"setses";
     }
     @RequestMapping("findAll")
@@ -118,5 +114,14 @@ public class UserController {
         modelAndView.setViewName("userList");
         System.out.println(userList);
         return modelAndView;
+    }
+
+    @RequestMapping("delete")
+    public String delete(){
+        return "deletee";
+    }
+    @RequestMapping("deletee")
+    public String deletee(String username){
+        return userService.delete(username)?"deletes":"say";
     }
 }

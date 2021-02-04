@@ -28,4 +28,8 @@
     <select id="selecte" parameterType="String" resultType="user">
         select * from user where username=#{username}
     </select>
+    <!--根据用户名删除用户-->
+    <delete id="delete" parameterType="String">
+        delete from user where username=#{username}
+    </delete>
 </mapper>

@@ -28,4 +28,7 @@ public interface UserMapper {
        //根据用户名查询
        List<User> selecte(String username);
 
+       //删除用户
+       void delete(String username);
+
 }

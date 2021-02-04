@@ -24,4 +24,7 @@ public interface UserService {
 
     //根据用户名查询
     List<User> selecte(String username);
+
+    //删除用户（根据用户名删除）
+    boolean delete(String username);
 }
