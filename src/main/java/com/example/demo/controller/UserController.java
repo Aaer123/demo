@@ -5,6 +5,7 @@ import com.example.demo.mapper.UserMapper;
 import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -22,21 +23,21 @@ public class UserController {
 
     /**
      * 注入用户业务层
-     * */
+     */
     @Autowired
     private UserService userService;
 
     /**
-    * 注入用户数据层
-    * */
-    @Resource
+     * 注入用户数据层
+     */
+    @Autowired
     private UserMapper userMapper;
 
 
     /**
-    * 注册
-    * 重定向：redirect:/index --- HttpServletRequest request
-    */
+     * 注册
+     * 重定向：redirect:/index --- HttpServletRequest request
+     */
     @RequestMapping(value = "/index", method = RequestMethod.POST)
     public String index(User user) {
         boolean save = userService.save(user);
@@ -59,22 +60,27 @@ public class UserController {
          user.setPassword("21312321");
          return user;
     }*/
+
     /**
-    * 登录逻辑
-    */
+     * 登录逻辑
+     */
     @RequestMapping(value = "login")
-    public String login(String username, String password) {
+    public String login(String username, String password, Model model) {
         User user = userService.selectUser(username, password);
         if (user != null) {
-            return "List";
+            List<User> getselects = userService.getselects();
+            model.addAttribute("userList", getselects);
+            return "userList";
+//            return "List";
             //查询用户名是否为空，如果为空返回注册页面
-        } else if (userMapper.getUser(username)==null){
+        } else if (userMapper.getUser(username) == null) {
             System.out.println("登录失败,请先注册账号");
             return "index";
-        }else{
+        } else {
             return "indexs";
         }
     }
+
         //跳转修改页面
         @RequestMapping("sets")
         public String sets() {
@@ -85,7 +91,9 @@ public class UserController {
         @RequestMapping("set")
         public String setPasswords(User user){
          return userService.updateuser(user)?"update":"setses";
+
     }
+
     @RequestMapping("findAll")
     public String findAll(){
         return "get";
@@ -120,6 +128,7 @@ public class UserController {
     public String delete(){
         return "deletee";
     }
+    
     @RequestMapping("deletee")
     public String deletee(String username){
         return userService.delete(username)?"deletes":"say";

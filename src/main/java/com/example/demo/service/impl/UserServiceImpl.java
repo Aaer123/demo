@@ -14,20 +14,20 @@ import java.util.List;
 @Transactional
 public class UserServiceImpl implements UserService {
 
-    @Resource
+    @Autowired
     private UserMapper userMapper;
 
 
     @Override
     public boolean save(User user) {
         //注册的用户名不存在，允许注册
-        if (userMapper.getUser(user.getUsername()) == null) {
+        if (userMapper.getUser(user.getUsername())==null){
             //注册
             userMapper.save(user);
             System.out.println(user);
             //注册成功
             return true;
-        } else {
+        }else{
             return false;
         }
     }
@@ -40,17 +40,16 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public boolean updateuser(User user) {
-        //查询到该用户名，进行修改密码
-        if (userMapper.getUser(user.getUsername()) != null) {
-            userMapper.updateuser(user);
-            System.out.println(user);
-            //修改成功
-            return true;
-        } else {
-            return false;
+            //查询到该用户名，进行修改密码
+            if (userMapper.getUser(user.getUsername()) != null) {
+                userMapper.updateuser(user);
+                System.out.println(user);
+                //修改成功
+                return true;
+            } else {
+                return false;
+            }
         }
-    }
-
     @Override
     public User getUser(String username) {
         User user = userMapper.getUser(username);
@@ -72,11 +71,11 @@ public class UserServiceImpl implements UserService {
     @Override
     public boolean delete(String username) {
         //查询到用户名不为空
-        if (userMapper.getUser(username)!= null) {
+        if (userMapper.getUser(username)!=null){
             //删除用户
             userMapper.delete(username);
             return true;
-        } else {
+        }else{
             return false;
         }
     }
