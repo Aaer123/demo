@@ -13,7 +13,7 @@ import java.util.Date;
 * */
 public class Customer {
 
-    private int userid;
+    private Integer userid;
 
     private String kuser;
 
@@ -25,8 +25,8 @@ public class Customer {
 
     private String khagt;
 //     json
-//    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-//    @DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
+//  @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
+    @DateTimeFormat(pattern="yyyy-MM-dd")
     private Date kcreatetime;
 /*
 * 日期转换格式处理
@@ -34,7 +34,7 @@ public class Customer {
     private String cjtime;
 
     public String getCjtime() {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
         String s = simpleDateFormat.format(kcreatetime);
         System.out.println(s);
         return s;
@@ -43,7 +43,7 @@ public class Customer {
     public Customer() {
     }
 
-    public Customer(int userid, String kuser, String ktelphone, String khlb, String khemial, String khagt, Date kcreatetime) {
+    public Customer(Integer userid, String kuser, String ktelphone, String khlb, String khemial, String khagt, Date kcreatetime) {
         this.userid = userid;
         this.kuser = kuser;
         this.ktelphone = ktelphone;
@@ -53,11 +53,11 @@ public class Customer {
         this.kcreatetime = kcreatetime;
     }
 
-    public int getUserid() {
+    public Integer getUserid() {
         return userid;
     }
 
-    public void setUserid(int userid) {
+    public void setUserid(Integer userid) {
         this.userid = userid;
     }
 
@@ -102,7 +102,7 @@ public class Customer {
     }
 
     public Date getKcreatetime() {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd");
         String s = simpleDateFormat.format(new Date());
         System.out.println(s);
         return kcreatetime;
