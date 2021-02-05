@@ -30,6 +30,11 @@ public class StorageController {
     private GrossShopMapper grossShopMapper;*/
 
 
+    @RequestMapping("addStorageshops")
+    public String addStorageshops(){
+        return "addStorageshop";
+    }
+
     /**
      * 功能实现：从进货单中查询到客户id，并且把商品进货单的信息及数量存入库存表
      * <p>
@@ -84,23 +89,6 @@ public class StorageController {
                  *
                  *
                  * */
-
-         /*   Storage storage =   storageMapper.findStorage(userid,bookshopid);
-            if( storage == null){
-                *//*将商品进货信息存入库存表*//*
-                storageMapper.addStorageshop(new Storage(bookid,bookname,userid,kuser,bookshopid,bookage,bboklb,jhsl,jhje));
-                System.out.println("当前商品信息存入库存表");
-            }else {
-                storage.setJhsl(storage.getJhsl()+jhsl);
-                storageMapper.updateStorageshop(storage);//更新
-            }
-
-
-                return "toaddStorageshop";
-
-            }else{
-
-            return "add";*/
                 Storage storage = storageMapper.findStorage(userid, bookshopid);
                 if (storage == null) {
                     storageMapper.addStorageshop(new Storage(bookid, bookname, userid, kuser, bookshopid, bookage, bboklb, jhsl, jhje));

@@ -25,13 +25,24 @@ public class GrossShopController {
     private CustomerService customerService;
 
 
+    @RequestMapping("grossshopadds")
+    public String grossshopadds(){
+        return "grossshopadd";
+    }
+
 
     @RequestMapping("grossshopadd")
-    public String Grossshopadd(GrossShop grossShop) {
+    public String grossshopadd(GrossShop grossShop) {
        grossShopService.grosshopadd(grossShop);
         System.out.println(grossShop);
-        return "togross";
+        return "grossshopaddst";
     }
+
+    @RequestMapping("grosshopselects")
+    public String grosshopselects(){
+        return "grosshopselect";
+    }
+
     @RequestMapping("grosshopselect")
     public ModelAndView grosshopselect(int userid){
         List<GrossShop> grossShopList = grossShopService.grosshopselect(userid);

@@ -26,7 +26,7 @@ public class Customer {
     private String khagt;
 //     json
 //    @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss",timezone="GMT+8")
-//    @DateTimeFormat(pattern="yyyy-MM-dd HH:mm:ss")
+//    @DateTimeFormat(pattern="yyyy/MM/dd HH:mm:ss")
     private Date kcreatetime;
 /*
 * 日期转换格式处理
@@ -34,7 +34,7 @@ public class Customer {
     private String cjtime;
 
     public String getCjtime() {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String s = simpleDateFormat.format(kcreatetime);
         System.out.println(s);
         return s;
@@ -102,7 +102,7 @@ public class Customer {
     }
 
     public Date getKcreatetime() {
-        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat simpleDateFormat=new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         String s = simpleDateFormat.format(new Date());
         System.out.println(s);
         return kcreatetime;

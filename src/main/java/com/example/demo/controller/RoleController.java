@@ -14,10 +14,16 @@ public class RoleController {
     @Autowired
     private RoleService roleService;
 
-    @RequestMapping(value = "roleins")
+
+    @RequestMapping("rolein")
+    public String rolein(){
+        return "roleins";
+    }
+
+    @RequestMapping("roleins")
     public String roleins(Role role){
         roleService.rolein(role);
         System.out.println(role);
-        return "toRoleins";
+        return "reigit";
     }
 }
