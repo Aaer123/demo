@@ -64,7 +64,7 @@ public class UserController {
     /**
      * 登录逻辑
      */
-    @RequestMapping(value = "login")
+    @RequestMapping(value = "login")//请求映射
     public String login(String username, String password, Model model) {
         User user = userService.selectUser(username, password);
         if (user != null) {
@@ -128,7 +128,7 @@ public class UserController {
     public String delete(){
         return "deletee";
     }
-    
+
     @RequestMapping("deletee")
     public String deletee(String username){
         return userService.delete(username)?"deletes":"say";
