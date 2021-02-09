@@ -76,7 +76,7 @@ public class UserController {
         } else if (userMapper.getUser(username) == null) {
             System.out.println("登录失败,请先注册账号");
             return "index";
-        } else {
+        } else{
             return "indexs";
         }
     }
