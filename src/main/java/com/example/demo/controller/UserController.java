@@ -73,12 +73,15 @@ public class UserController {
             return "userList";
 //            return "List";
             //查询用户名是否为空，如果为空返回注册页面
-        } else if (userMapper.getUser(username) == null) {
+        } else if (userMapper.getUser(username) == null){
             System.out.println("登录失败,请先注册账号");
             return "index";
-        } else{
-            return "indexs";
+        } else {
+            if (!user.getPassword().trim().equals(password)){
+                return "indexs";
+            }
         }
+        return "";
     }
 
         //跳转修改页面

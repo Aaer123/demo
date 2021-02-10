@@ -28,6 +28,7 @@ public interface UserService {
     //删除用户（根据用户名删除）
     boolean delete(String username);
 
+    
     boolean getPassword(String password);
 
 }

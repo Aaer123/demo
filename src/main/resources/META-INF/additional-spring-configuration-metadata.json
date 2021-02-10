@@ -4,5 +4,10 @@
       "name": "mybatis.youku1327.file.root.path",
       "type": "java.lang.String",
       "description": "Description for mybatis.youku1327.file.root.path."
-  }
-] }
+    },
+    {
+      "name": "mybatis.logging.level.com.example.demo.mapper",
+      "type": "java.lang.String",
+      "description": "Description for mybatis.logging.level.com.example.demo.mapper."
+    }
+  ] }
