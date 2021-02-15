@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 ///**
-// * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端·
+// * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端
 //*/
 //@RestController
 @Controller
@@ -77,11 +77,9 @@ public class UserController {
             System.out.println("登录失败,请先注册账号");
             return "index";
         } else {
-            if (!user.getPassword().trim().equals(password)){
-                return "indexs";
-            }
+
+            return "indexs";
         }
-        return "";
     }
 
         //跳转修改页面
