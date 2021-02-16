@@ -91,7 +91,7 @@ public class UserController {
         //修改密码
         @RequestMapping("set")
         public String setPasswords(User user){
-         return userService.updateuser(user)?"update":"setses";
+         return userService.updateuser(user)?"update":"set";
 
     }
 
