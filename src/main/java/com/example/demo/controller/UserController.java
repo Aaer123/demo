@@ -6,6 +6,7 @@ import com.example.demo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
@@ -19,6 +20,7 @@ import java.util.List;
 //@RestController
 @Controller
 @RequestMapping("/user")
+@CrossOrigin
 public class UserController {
 
     /**
@@ -73,13 +75,13 @@ public class UserController {
             return "userList";
 //            return "List";
             //查询用户名是否为空，如果为空返回注册页面
-        } else if (userMapper.getUser(username) == null){
+        }else if (userMapper.getUser(username) == null) {
             System.out.println("登录失败,请先注册账号");
             return "index";
-        } else {
-            return "indexs";
         }
+        return "indexs";
     }
+
 
         //跳转修改页面
         @RequestMapping("sets")
