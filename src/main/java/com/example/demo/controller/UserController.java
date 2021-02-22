@@ -77,7 +77,6 @@ public class UserController {
             System.out.println("登录失败,请先注册账号");
             return "index";
         } else {
-
             return "indexs";
         }
     }
