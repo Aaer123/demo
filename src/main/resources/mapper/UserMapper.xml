@@ -32,4 +32,7 @@
     <delete id="delete" parameterType="String">
         delete from user where username=#{username}
     </delete>
+    <select id="getPassword" parameterType="String" resultType="user">
+        select * from user where password=#{password}
+    </select>
 </mapper>

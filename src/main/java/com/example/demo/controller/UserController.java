@@ -14,7 +14,7 @@ import javax.annotation.Resource;
 import java.util.List;
 
 ///**
-// * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端·
+// * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端
 //*/
 //@RestController
 @Controller
@@ -73,10 +73,11 @@ public class UserController {
             return "userList";
 //            return "List";
             //查询用户名是否为空，如果为空返回注册页面
-        } else if (userMapper.getUser(username) == null) {
+        } else if (userMapper.getUser(username) == null){
             System.out.println("登录失败,请先注册账号");
             return "index";
         } else {
+
             return "indexs";
         }
     }
@@ -90,7 +91,7 @@ public class UserController {
         //修改密码
         @RequestMapping("set")
         public String setPasswords(User user){
-         return userService.updateuser(user)?"update":"setses";
+         return userService.updateuser(user)?"update":"set";
 
     }
 
