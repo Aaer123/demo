@@ -36,8 +36,3 @@ mybatis:
 #自定义文件上传路径
 web:
   upload-path: /Downloads/imgUpload/
-
-
-logging:
-  file:
-    path: D:\test.log
