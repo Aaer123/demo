@@ -19,6 +19,7 @@ import java.util.List;
 // * @RestController: —————— @Controller与 @ResponseBody两个组成的，返回json——后端返回对象给前端
 //*/
 //@RestController
+//Redis:数据库缓存
 @Controller
 @RequestMapping("/user")
 @CrossOrigin
