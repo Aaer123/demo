@@ -77,17 +77,6 @@ public class StorageController {
                  *    ③、宗旨根据客户编号、商品款号查询出这张库存单据，（唯一）查询到进货的这个客户；如果没有查到，就是第一次入库，没有存在这个客户的单据
                  *    ④、修改单据数据，更新数量
                  *    ⑤、特殊：客户一致商品数量累加，不另外存放一条记录
-                 *
-                 *
-                 *    第二种方案：
-                 *    ①、在mapper中定义方法：storage findStorage（int userid，String bookshopid）查询到客户id，商品款号
-                 *    ②、在mapper在定义一个修改方法：void updateStorageshop（Storage storage）
-                 *
-                 *
-                 *    第三种方案：
-                 *    ①、进货单——————入库单，直接在GrossShop注入入库表做关联，查询到storageId获取单据
-                 *
-                 *
                  * */
                 Storage storage = storageMapper.findStorage(userid, bookshopid);
                 if (storage == null) {
