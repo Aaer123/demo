@@ -31,5 +31,6 @@ public interface UserMapper {
        //删除用户
        void delete(String username);
 
-       boolean getPassword(String password);
+       //查询密码是否一致
+       boolean getPasswords(String password);
 }

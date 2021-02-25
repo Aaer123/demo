@@ -52,6 +52,7 @@ public class UserServiceImpl implements UserService {
     @Override
     public User getUser(String username) {
         User user = userMapper.getUser(username);
+        System.out.println(username);
         return user;
     }
 
@@ -80,8 +81,8 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean getPassword(String password) {
-        boolean userMapperPassword = userMapper.getPassword(password);
-        return userMapperPassword;
+    public boolean getPasswords(String password) {
+        boolean passwords = userMapper.getPasswords(password);
+        return passwords;
     }
 }
