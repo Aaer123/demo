@@ -9,17 +9,11 @@ import org.apache.ibatis.annotations.Param;
 public interface StorageMapper {
 
     /**进货单的数据放入库存表*/
-
     void addStorageshop(Storage storage);
 
-
-    /**
-    *
-    * 查询库存单中的客户编号、商品款号
-    *
-    */
+    /**查询库存单中的客户编号、商品款号*/
     Storage findStorage(@Param("userid") int userid, @Param("bookshopid") String bookshopid);
 
-
+    /**更新数量*/
     void updateStorageshop(Storage storage);
 }
