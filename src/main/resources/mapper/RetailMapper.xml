@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo.mapper.RetailMapper">
+    <insert id="StorageShopid">
+        insert into lsddj values (#{lsdbh},#{bookshopid}
+        ,#{bookname},#{bookage},
+        #{booklb},#{jhsl},#{jhje},#{tszsl},#{tszje})
+    </insert>
+    <update id="RetailNumber">
+        update lsddj set jhsl=#{jhsl} where bookshopid=#{bookshopid}
+    </update>
+    <select id="AddShop" resultType="retail">
+        select * from lsddj where bookshopid=#{bookshopid}
+    </select>
+</mapper>

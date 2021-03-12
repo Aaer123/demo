@@ -16,9 +16,7 @@ public interface GrossShopMapper {
     void grosshopadd(GrossShop grossShop);
 
     /**
-    *
     *根据客户id查询进货单
-    *
     */
     List<GrossShop> grosshopselect(int userid);
 }

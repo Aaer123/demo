@@ -41,7 +41,7 @@ public class UserServiceImpl implements UserService {
     public boolean updateuser(User user) {
             //查询到该用户名，进行修改密码
             if (userMapper.getUser(user.getUsername()) != null) {
-                userMapper.updateuser(user);
+                userMapper.updaters(user);
                 System.out.println(user);
                 //修改成功
                 return true;
@@ -58,13 +58,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public List<User> getselects() {
-        List<User> userList = userMapper.getselects();
+        List<User> userList = userMapper.genuflect();
         return userList;
     }
 
     @Override
     public List<User> selecte(String username) {
-        List<User> userList = userMapper.selecte(username);
+        List<User> userList = userMapper.selected(username);
         return userList;
     }
 

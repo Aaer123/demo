@@ -13,7 +13,7 @@
         select * from user where username=#{username} and password=#{password}
     </select>
     <!--修改密码-->
-    <update id="updateuser" parameterType="String">
+    <update id="updaters" parameterType="String">
         update user set password=#{password} where username=#{username}
     </update>
     <!--查询用户是否为空-->
@@ -21,11 +21,11 @@
         select * from user where username=#{username}
     </select>
     <!--查询所有用户-->
-    <select id="getselects" resultType="user">
+    <select id="genuflect" resultType="user">
         select * from user
     </select>
     <!--根据用户名查询用户信息-->
-    <select id="selecte" parameterType="String" resultType="user">
+    <select id="selected" parameterType="String" resultType="user">
         select * from user where username=#{username}
     </select>
     <!--根据用户名删除用户-->

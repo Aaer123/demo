@@ -17,16 +17,16 @@ public interface UserMapper {
        User selectUser(@Param("username") String username,@Param("password") String password);
 
        //修改密码
-       void updateuser(User user);
+       void updaters(User user);
 
        //查询用户名
        User getUser(String username);
 
        //查询所有用户
-       List<User> getselects();
+       List<User> genuflect();
 
        //根据用户名查询
-       List<User> selecte(String username);
+       List<User> selected(String username);
 
        //删除用户
        void delete(String username);

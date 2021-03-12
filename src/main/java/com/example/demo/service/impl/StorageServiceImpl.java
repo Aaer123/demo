@@ -30,6 +30,12 @@ public class StorageServiceImpl implements StorageService {
     public void updateStorageshop(Storage storage) {
         storageMapper.updateStorageshop(storage);
     }
+
+    @Override
+    public Storage fibd(String bookshopid) {
+        Storage fibd = storageMapper.fibd(bookshopid);
+        return fibd;
+    }
 }
 
 

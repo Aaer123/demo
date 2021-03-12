@@ -13,8 +13,12 @@
     <select id="findStorage" resultType="storage">
         select * from stock where userid=#{userid} and bookshopid=#{bookshopid}
     </select>
-    <!--修改库存单中的数量-->
+    <!--更新库存单中的数量-->
     <update id="updateStorageshop">
-        update stock set jhsl=#{jhsl} where userid=#{userid} and bookshopid=#{bookshopid}
+        update stock set jhsl=#{jhsl} where bookshopid=#{bookshopid}
     </update>
+    <!--查询库存单的商品款号-->
+    <select id="fibd" resultType="storage">
+        select * from stock where bookshopid=#{bookshopid}
+    </select>
 </mapper>

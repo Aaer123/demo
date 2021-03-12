@@ -33,9 +33,9 @@ public class GrossShopController {
 
     @RequestMapping("grossshopadd")
     public String grossshopadd(GrossShop grossShop) {
-       grossShopService.grosshopadd(grossShop);
-        System.out.println(grossShop);
-        return "grossshopaddst";
+          grossShopService.grosshopadd(grossShop);
+           System.out.println(grossShop);
+            return "grossshopaddst";
     }
 
     @RequestMapping("grosshopselects")
